@@ -38,7 +38,10 @@ var bookTitle = xpath("//div[@class='desc']/h3").snapshotItem(0).innerHTML;
 var book;
 
 window.onload = function(){
-    GM_xmlhttpRequest({
+    
+};
+
+GM_xmlhttpRequest({
         method: "get",
         url: "https://api.douban.com/v2/book/search?q=" + bookTitle + "&fields=id,title,rating",
         onload: function(result) {
@@ -57,7 +60,6 @@ window.onload = function(){
             setDoubanReview(bookId);
         }
     });
-};
 
 
 
